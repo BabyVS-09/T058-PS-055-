@@ -1,0 +1,66 @@
+# ==============================================================================
+# PS-055: Recruitment ATS - Week 2 Sample Happy-Path Command Script
+# Team T058: Baby V S (1AT24CG012) & Bhagyashree Rama Naik (1AT24CG013)
+# ==============================================================================
+
+# 1. Register Job Requisitions (BR-01)
+# Syntax: REGISTER_REQUISITION | reqId | role | grade | headcount | location | minCtc | maxCtc | hiringManager | openingDate
+REGISTER_REQUISITION | REQ-101 | Senior Java Backend Engineer | G4 | 2 | Bengaluru | 1400000 | 2200000 | Vikram Desai | 2026-03-01
+REGISTER_REQUISITION | REQ-102 | QA Automation Engineer | G2 | 1 | Hyderabad | 700000 | 1100000 | Meera Nair | 2026-03-03
+
+# 2. Register Candidates across supported recruitment sources (BR-02)
+# Syntax: REGISTER_CANDIDATE | candidateId | name | noticeDays | currentCtc | expectedCtc | experienceYears | source
+REGISTER_CANDIDATE | CAN-201 | Aarav Kulkarni | 30 | 1350000 | 1800000 | 5.5 | REFERRAL
+REGISTER_CANDIDATE | CAN-202 | Diya Hegde | 45 | 1250000 | 1750000 | 4.8 | PORTAL
+REGISTER_CANDIDATE | CAN-203 | Rohan Shetty | 15 | 780000 | 950000 | 2.5 | AGENCY
+REGISTER_CANDIDATE | CAN-204 | Sneha Rao | 0 | 1500000 | 1850000 | 6.0 | INTERNAL
+
+# 3. Apply Candidates to Registered Requisitions (BR-03)
+# Syntax: APPLY | applicationId | candidateId | requisitionId | applicationDate
+APPLY | APP-301 | CAN-201 | REQ-101 | 2026-03-05
+APPLY | APP-302 | CAN-202 | REQ-101 | 2026-03-06
+APPLY | APP-303 | CAN-203 | REQ-102 | 2026-03-07
+APPLY | APP-304 | CAN-204 | REQ-101 | 2026-03-08
+
+# 4. Walk APP-301 through the complete happy-path stage lifecycle to JOINED (BR-04, BR-05, BR-06)
+TRANSITION_STAGE | APP-301 | L1
+RECORD_SCORE     | APP-301 | L1 | 4.2
+TRANSITION_STAGE | APP-301 | L2
+RECORD_SCORE     | APP-301 | L2 | 4.0
+TRANSITION_STAGE | APP-301 | HR
+RECORD_SCORE     | APP-301 | HR | 4.5
+TRANSITION_STAGE | APP-301 | OFFER_DRAFT
+TRANSITION_STAGE | APP-301 | OFFER_APPROVED
+TRANSITION_STAGE | APP-301 | OFFERED
+TRANSITION_STAGE | APP-301 | ACCEPTED
+TRANSITION_STAGE | APP-301 | JOINED
+
+# 5. Walk APP-302 through L1 -> L2 -> WAITLIST (demonstrating valid waitlist stage)
+TRANSITION_STAGE | APP-302 | L1
+RECORD_SCORE     | APP-302 | L1 | 3.5
+TRANSITION_STAGE | APP-302 | L2
+RECORD_SCORE     | APP-302 | L2 | 3.8
+TRANSITION_STAGE | APP-302 | WAITLIST
+
+# 6. Walk APP-303 through ON_HOLD -> L1 -> L2 -> HR -> OFFERED -> DECLINED (releasing headcount)
+TRANSITION_STAGE | APP-303 | ON_HOLD
+TRANSITION_STAGE | APP-303 | L1
+RECORD_SCORE     | APP-303 | L1 | 3.0
+TRANSITION_STAGE | APP-303 | L2
+RECORD_SCORE     | APP-303 | L2 | 3.5
+TRANSITION_STAGE | APP-303 | HR
+TRANSITION_STAGE | APP-303 | OFFER_DRAFT
+TRANSITION_STAGE | APP-303 | OFFER_APPROVED
+TRANSITION_STAGE | APP-303 | OFFERED
+TRANSITION_STAGE | APP-303 | DECLINED
+
+# 7. Walk APP-304 (Internal candidate) to OFFER_DRAFT on REQ-101's remaining headcount
+TRANSITION_STAGE | APP-304 | L1
+RECORD_SCORE     | APP-304 | L1 | 4.6
+TRANSITION_STAGE | APP-304 | L2
+RECORD_SCORE     | APP-304 | L2 | 4.4
+TRANSITION_STAGE | APP-304 | HR
+TRANSITION_STAGE | APP-304 | OFFER_DRAFT
+
+# 8. Print final deterministic pipeline snapshot
+SUMMARY
