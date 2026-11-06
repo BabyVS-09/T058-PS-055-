@@ -1,0 +1,22 @@
+package com.team058.ats.model;
+
+public enum CandidateState {
+    APPLIED,
+    SCREENED,
+    L1_SCHEDULED,
+    L1_PASSED,
+    L2_SCHEDULED,
+    L2_PASSED,
+    HR_SCHEDULED,
+    HR_PASSED,
+    OFFER_DRAFT,
+    OFFER_PENDING_APPROVAL,
+    OFFER_APPROVED,
+    OFFER_EXTENDED,
+    ACCEPTED,
+    DECLINED,
+    JOINED,
+    WAITLIST,
+    REJECTED,
+    WITHDRAWN
+}
