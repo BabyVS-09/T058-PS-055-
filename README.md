@@ -1,3 +1,13 @@
+# Faculty dataset compatibility note
+
+The faculty sample pack is bundled in `faculty-sample-data/`. See
+`FACULTY_DATASET_INTEGRATION.md` for the compatibility status and the exact
+remaining integration work. The original Week 3 project is preserved; its
+legacy command parser is not yet a drop-in evaluator for the faculty command
+format.
+
+---
+
 # PS-055: Recruitment ATS with Interview Scheduling and Offer Approval Matrix
 
 ## Team Details

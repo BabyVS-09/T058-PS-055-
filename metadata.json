@@ -1,0 +1,8 @@
+{
+  "name": "Recruitment ATS with Interview Scheduling and Offer Approval Matrix",
+  "description": "Deterministic Java 17 backend recruitment ATS engine featuring interview scheduling, score validation, BigDecimal offer calculation, joining bonuses, multi-level approval matrix, headcount management, and command-file parser for PS-055.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
