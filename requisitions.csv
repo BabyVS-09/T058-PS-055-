@@ -1,0 +1,9 @@
+req_id,title,department,grade,min_ctc,max_ctc,headcount,hiring_manager_id,hr_lead_id,open_date
+REQ-001,Senior Backend Engineer,Engineering,L4,2000000,3000000,2,INT-011,INT-009,2026-10-01
+REQ-002,Principal Architect,Architecture,L5,3500000,5000000,1,INT-011,INT-009,2026-10-01
+REQ-003,Frontend Specialist,Engineering,L3,1200000,2000000,2,INT-011,INT-010,2026-10-05
+REQ-004,DevOps & Site Reliability Engineer,Infrastructure,L4,2200000,3200000,1,INT-011,INT-009,2026-10-05
+REQ-005,Data Platform Engineer,Data,L4,2400000,3400000,1,INT-011,INT-010,2026-10-08
+REQ-006,Mobile Applications Engineer,Mobile,L3,1400000,2000000,2,INT-011,INT-010,2026-10-10
+REQ-007,Staff Security Engineer,Security,L5,3800000,5500000,1,INT-011,INT-009,2026-10-12
+REQ-008,Fullstack Product Engineer,Engineering,L3,1300000,1900000,1,INT-011,INT-010,2026-10-15

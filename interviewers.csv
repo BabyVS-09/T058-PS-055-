@@ -1,0 +1,13 @@
+interviewer_id,name,email,role,grade,department
+INT-001,Rajesh Sharma,rajesh.sharma@corp.com,TECHNICAL,L4,Engineering
+INT-002,Priya Nair,priya.nair@corp.com,TECHNICAL,L5,Engineering
+INT-003,Amit Verma,amit.verma@corp.com,TECHNICAL,L3,Engineering
+INT-004,Sneha Kulkarni,sneha.kulkarni@corp.com,TECHNICAL,L5,Architecture
+INT-005,Vikram Malhotra,vikram.m@corp.com,TECHNICAL,L4,Infrastructure
+INT-006,Ananya Das,ananya.das@corp.com,TECHNICAL,L3,Data
+INT-007,Rohan Joshi,rohan.joshi@corp.com,TECHNICAL,L6,Security
+INT-008,Meera Iyer,meera.iyer@corp.com,TECHNICAL,L4,Engineering
+INT-009,Sunita Reddy,sunita.reddy@corp.com,HR,HR_LEAD,Human Resources
+INT-010,Karthik Menon,karthik.menon@corp.com,HR,HR_EXECUTIVE,Human Resources
+INT-011,Sanjay Gupta,sanjay.gupta@corp.com,HIRING_MANAGER,L5,Engineering
+INT-012,Radhika Roy,radhika.roy@corp.com,VP,VP,Executive

@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ats</groupId>
+    <groupId>com.team058.ats</groupId>
     <artifactId>recruitment-ats</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>T058-PS-055 Recruitment ATS</name>
-    <description>
-        Capstone Project PS-055: Recruitment ATS with Interview Scheduling and Offer Approval Matrix
-        Team T058 - Baby V S (1AT24CG012) and Bhagyashree Rama Naik (1AT24CG013)
-    </description>
+    <name>Recruitment ATS - Team T058 (PS-055)</name>
+    <description>Recruitment ATS with Interview Scheduling and Offer Approval Matrix</description>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.10.2</junit.jupiter.version>
     </properties>
 
     <dependencies>
-        <!-- JUnit 5 for unit and integration testing -->
+        <!-- JUnit 5 Jupiter for Unit Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
@@ -36,24 +43,39 @@
 
     <build>
         <plugins>
-            <!-- Compile using Java 17 -->
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.11.0</version>
                 <configuration>
-                    <release>17</release>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
 
-            <!-- Run JUnit 5 tests with Maven Surefire -->
+            <!-- Maven Surefire Plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
 
-            <!-- Build runnable JAR with Main-Class manifest entry -->
+            <!-- Exec Maven Plugin to run CLI directly via mvn exec:java -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <mainClass>com.team058.ats.Main</mainClass>
+                    <arguments>
+                        <argument>data</argument>
+                        <argument>output</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+
+            <!-- Jar Plugin with Main-Class in Manifest -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -61,19 +83,9 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.ats.Main</mainClass>
+                            <mainClass>com.team058.ats.Main</mainClass>
                         </manifest>
                     </archive>
-                </configuration>
-            </plugin>
-
-            <!-- Support running directly via: mvn exec:java -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <mainClass>com.ats.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
